@@ -3,7 +3,7 @@ const phrases = [
   "DO STUFF!!!!",
   "make games",
   "mostly do programming",
-  "MADE THIS WEBSITE WITHOUT BUILDERS. ME. AND PURE CODE.",
+  "am",
   "am great atIDONT CARE.",
   "",
   "yum",

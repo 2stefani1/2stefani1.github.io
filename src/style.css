@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 
 :root {
     --header-height: 3rem;
@@ -11,7 +12,8 @@
     --bg-color-secondary: #050505; /* Slightly lighter dark for cards/sections */
     --text-color: #E4E6EB; /* Light gray for regular text */
 
-    --body-font: 'Poppins', sans-serif;
+    --body-font: 'Montserrat', sans-serif;
+    --title-font: 'Poppins', sans-serif;
     --big-font-size:2rem;
     --subtitle-font-size: 2rem;
     --h2-font-size: 1.25rem;
@@ -68,6 +70,7 @@ img {
 .section-title {
     position: relative;
     font-size: var(--h2-font-size);
+    font-family: var(--title-font);
     color: var(--first-color);
     margin-top: var(--mb2);
     margin-bottom: var(--mb4);
@@ -99,6 +102,50 @@ img {
     width: calc(100% - 2rem);
     margin-left: var(--mb2);
     margin-right: var(--mb2);
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0) scale(1.1, 0.9); 
+        animation-timing-function: ease-out;
+    }
+
+    25% {
+        transform: translateY(-40px) rotate(-5deg) scale(1);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: translateY(0) scale(1.1, 0.9); /* Squash when landing */
+        animation-timing-function: ease-out;
+    }
+    75% {
+        transform: translateY(-40px) rotate(5deg) scale(1);
+        animation-timing-function: ease-in;
+    }
+
+    100% {
+        transform: translateY(0) scale(1.1, 0.9);
+    }
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 0rem;
+    margin-bottom: var(--mb1);
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: jump .7s infinite;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .l-header {
@@ -149,7 +196,7 @@ img {
     background-color: var(--first-color);
 }
 
-.home { height: calc(100vh - 3rem); row-gap: 1rem; }
+.home { height: calc(100vh - 3rem); row-gap: 1rem; font-family: var(--title-font);}
 .home-data { align-self: center; }
 .home-title { font-size: var(--big-font-size); margin-bottom: var(--mb-2); }
 .home-subtitle { font-size: var(--subtitle-font-size); margin-bottom: var(--mb-2); }
@@ -248,6 +295,7 @@ img {
 }
 
 
+
 /* Media Queries */
 @media screen and (min-width: 769px) {
     body { margin: 0; }
@@ -296,4 +344,15 @@ img {
     }
 
     .show { right: 0; }
+
+    .profile-container {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
 }
